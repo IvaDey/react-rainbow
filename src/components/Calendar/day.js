@@ -43,13 +43,13 @@ function DayComponent(props) {
         }
     }, [tabIndex, useAutoFocus]);
 
-    if (isAdjacentDate || isDisabled) {
-        return (
-            <StyledDay role="gridcell" aria-selected="false">
-                <StyledDayAdjacent>{day}</StyledDayAdjacent>
-            </StyledDay>
-        );
-    }
+    // if (isAdjacentDate || isDisabled) {
+    //     return (
+    //         <StyledDay role="gridcell" aria-selected="false">
+    //             <StyledDayAdjacent>{day}</StyledDayAdjacent>
+    //         </StyledDay>
+    //     );
+    // }
 
     return (
         <StyledDay role="gridcell">
@@ -75,7 +75,11 @@ function DayComponent(props) {
                     isWithinRange={isWithinRange}
                     isToday={isToday}
                 >
-                    {day}
+                    {isAdjacentDate || isDisabled ? (
+                        <StyledDayAdjacent>{day}</StyledDayAdjacent>
+                    ) : (
+                        day
+                    )}
                 </StyledDayButton>
             </StyledRangeHighlight>
         </StyledDay>

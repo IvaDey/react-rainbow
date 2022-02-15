@@ -11,13 +11,6 @@ const StyledDayAdjacent = attachThemeAttrs(styled.span)`
     font-weight: 400;
     line-height: 38px;
     height: 38px;
-    margin: 6px auto;
-    cursor: not-allowed;
-    user-select: none;
-
-    @media (max-width: 600px) {
-        margin: 3px auto;
-    }
 `;
 
 export default StyledDayAdjacent;
