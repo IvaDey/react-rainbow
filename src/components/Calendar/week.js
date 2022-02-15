@@ -8,7 +8,7 @@ export default function Week(props) {
     const {
         value,
         startDate,
-        endDate,
+        // endDate,
         minDate,
         maxDate,
         firstDayMonth,
@@ -17,8 +17,9 @@ export default function Week(props) {
     } = props;
     const { currentRange, selectionType, selectedRange } = useContext(CalendarContext);
 
-    const daysDiff = endDate.getDay() - startDate.getDay() + 1;
-    const days = Array.from(Array(daysDiff), (item, index) => {
+    // const daysDiff = endDate.getDay() - startDate.getDay() + 1;
+    // const days = Array.from(Array(daysDiff), (item, index) => {
+    const days = Array.from(Array(7), (item, index) => {
         const date = addDays(startDate, index);
         return (
             <Day
@@ -45,7 +46,7 @@ Week.propTypes = {
     minDate: PropTypes.instanceOf(Date),
     maxDate: PropTypes.instanceOf(Date),
     startDate: PropTypes.instanceOf(Date),
-    endDate: PropTypes.instanceOf(Date),
+    // endDate: PropTypes.instanceOf(Date),
     value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
     onChange: PropTypes.func,
 };
@@ -56,7 +57,7 @@ Week.defaultProps = {
     minDate: undefined,
     maxDate: undefined,
     startDate: undefined,
-    endDate: undefined,
+    // endDate: undefined,
     value: undefined,
     onChange: () => {},
 };

@@ -5,58 +5,26 @@ import { getFormattedDayName } from './helpers';
 import StyledAbbrHeader from './styled/abbrHeader';
 
 export default function DayOfWeek({ locale }) {
+    const weekDays = [
+        new Date(2022, 1, 14),
+        new Date(2022, 1, 15),
+        new Date(2022, 1, 16),
+        new Date(2022, 1, 17),
+        new Date(2022, 1, 18),
+        new Date(2022, 1, 19),
+        new Date(2022, 1, 20),
+    ];
+
     return (
         <thead>
             <tr>
-                <StyledHeaderDays scope="col">
-                    <StyledAbbrHeader
-                        title={getFormattedDayName(new Date(2019, 9, 27), 'long', locale)}
-                    >
-                        {getFormattedDayName(new Date(2019, 9, 27), 'short', locale)}
-                    </StyledAbbrHeader>
-                </StyledHeaderDays>
-                <StyledHeaderDays scope="col">
-                    <StyledAbbrHeader
-                        title={getFormattedDayName(new Date(2019, 9, 28), 'long', locale)}
-                    >
-                        {getFormattedDayName(new Date(2019, 9, 28), 'short', locale)}
-                    </StyledAbbrHeader>
-                </StyledHeaderDays>
-                <StyledHeaderDays scope="col">
-                    <StyledAbbrHeader
-                        title={getFormattedDayName(new Date(2019, 9, 29), 'long', locale)}
-                    >
-                        {getFormattedDayName(new Date(2019, 9, 29), 'short', locale)}
-                    </StyledAbbrHeader>
-                </StyledHeaderDays>
-                <StyledHeaderDays scope="col">
-                    <StyledAbbrHeader
-                        title={getFormattedDayName(new Date(2019, 9, 30), 'long', locale)}
-                    >
-                        {getFormattedDayName(new Date(2019, 9, 30), 'short', locale)}
-                    </StyledAbbrHeader>
-                </StyledHeaderDays>
-                <StyledHeaderDays scope="col">
-                    <StyledAbbrHeader
-                        title={getFormattedDayName(new Date(2019, 9, 31), 'long', locale)}
-                    >
-                        {getFormattedDayName(new Date(2019, 9, 31), 'short', locale)}
-                    </StyledAbbrHeader>
-                </StyledHeaderDays>
-                <StyledHeaderDays scope="col">
-                    <StyledAbbrHeader
-                        title={getFormattedDayName(new Date(2019, 10, 1), 'long', locale)}
-                    >
-                        {getFormattedDayName(new Date(2019, 10, 1), 'short', locale)}
-                    </StyledAbbrHeader>
-                </StyledHeaderDays>
-                <StyledHeaderDays scope="col">
-                    <StyledAbbrHeader
-                        title={getFormattedDayName(new Date(2019, 10, 2), 'long', locale)}
-                    >
-                        {getFormattedDayName(new Date(2019, 10, 2), 'short', locale)}
-                    </StyledAbbrHeader>
-                </StyledHeaderDays>
+                {weekDays.map(weekDay => (
+                    <StyledHeaderDays key={weekDay.toISOString()} scope="col">
+                        <StyledAbbrHeader title={getFormattedDayName(weekDay, 'long', locale)}>
+                            {getFormattedDayName(weekDay, 'short', locale)}
+                        </StyledAbbrHeader>
+                    </StyledHeaderDays>
+                ))}
             </tr>
         </thead>
     );
