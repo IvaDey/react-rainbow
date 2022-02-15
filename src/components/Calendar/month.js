@@ -23,9 +23,6 @@ export default function Month(props) {
     const weeks = Array.from(Array(totalWeeks), (item, index) => {
         const startDate = addDays(week, 7 * index);
         const endDate = addDays(startDate, 6);
-        console.log(startDate);
-        console.log(endDate);
-        console.log('');
 
         startDate.setHours(0, 0, 0, 0);
         endDate.setHours(11, 59, 59, 999);
